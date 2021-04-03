@@ -12,6 +12,10 @@ $projects=mysqli_fetch_all($run_query,MYSQLI_ASSOC);
 <a class="btn btn-primary m-3" href="login.php">Login</a>
 <?php }?>
 
+<?php if(isset($_SESSION['email'])) {?>
+<a class="btn btn-primary" href="addProjectForm.php">Add Project</a>
+<?php }?>
+
 <?php if(isset($_SESSION['email'])){?>
 <a class="btn btn-danger m-3" href="logout.php">Logout</a>
 
@@ -27,8 +31,8 @@ $projects=mysqli_fetch_all($run_query,MYSQLI_ASSOC);
    <h1><?php echo $project['name']?></h1>
    <a class="btn btn-primary" href="showproject.php?id=<?php echo$project['id']?>">View-Detalis</a>
   <?php if(isset($_SESSION['email'])){?>
-   <a class="btn btn-success"href="">Edit</a>
-   <a class="btn btn-danger" href="">Delete</a>
+   <a class="btn btn-success"href="edit.php?id=<?php echo $project['id']?>">Edit</a>
+   <a class="btn btn-danger" href="delete.php?id=<?php echo $project['id']?>">Delete</a>
    <?php }?>
  </div>
 
